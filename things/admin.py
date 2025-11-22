@@ -2,11 +2,11 @@ from django.contrib import admin
 
 from .models import Thing
 from .models import ThingEvent
-from .models import ThingThoucher
+from .models import ThingToucher
 
 
-class ThingThoucherInline(admin.TabularInline):
-    model = ThingThoucher
+class ThingToucherInline(admin.TabularInline):
+    model = ThingToucher
 
 
 @admin.register(Thing)
@@ -18,12 +18,12 @@ class ThingAdmin(admin.ModelAdmin):
         'slug',
     ]
     inlines = [
-        ThingThoucherInline,
+        ThingToucherInline,
     ]
 
 
-@admin.register(ThingThoucher)
-class ThingThoucher(admin.ModelAdmin):
+@admin.register(ThingToucher)
+class ThingToucher(admin.ModelAdmin):
     list_filter = [
         'thing',
         'user',

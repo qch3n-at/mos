@@ -16,7 +16,7 @@ class Thing(models.Model):
         return "Thing " + self.slug
 
 
-class ThingThoucher(models.Model):
+class ThingToucher(models.Model):
     """ Allows a user to use a thing, e.g. user ripper has permission to use the laser """
     thing = models.ForeignKey(Thing, on_delete=models.PROTECT)
     user = models.ForeignKey(

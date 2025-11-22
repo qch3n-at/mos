@@ -20,7 +20,7 @@ from django.template.loader import get_template
 from django.utils.translation import gettext_lazy as _
 
 from members.models import members_due_for_bank_collection
-from things.models import ThingThoucher
+from things.models import ThingToucher
 
 from .models import BankCollectionMode
 from .models import BankImportMatcher
@@ -281,8 +281,8 @@ class MembershipPeriodListFilter(admin.SimpleListFilter):
         return qs
 
 
-class ThingThoucherInline(admin.TabularInline):
-    model = ThingThoucher
+class ThingToucherInline(admin.TabularInline):
+    model = ThingToucher
 
 
 class MemberCreationForm(UserCreationForm):
@@ -320,7 +320,7 @@ class MemberAdmin(UserAdmin):
     inlines = [
         ContactInfoInline,
         LockerInline,
-        ThingThoucherInline,
+        ThingToucherInline,
         PaymentInfoInline,
         MembershipPeriodInline,
         CommunicationRecordInline,
