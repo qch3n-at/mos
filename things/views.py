@@ -34,10 +34,10 @@ def check_permissions(request, thing_slug):
 
 
 @csrf_exempt
-def thingusers_list(request, thing):
+def thingtoucher_list(request, thing):
     thing = check_permissions(request, thing)
 
-    members_with_thing = get_active_and_future_members().filter(thingusers__thing=thing)
+    members_with_thing = get_active_and_future_members().filter(thingtoucher__thing=thing)
 
     text = '\n'.join(
         (m.contactinfo.key_id or "") + "," + m.username
@@ -61,7 +61,7 @@ class ThingEventCreationForm(forms.ModelForm):
 
 @csrf_exempt
 @require_POST
-def thingusers_usage(request, thing):
+def thingtoucher_usage(request, thing):
     thing = check_permissions(request, thing)
 
     data = request.POST.copy()
